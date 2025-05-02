@@ -129,6 +129,8 @@ SALES_IMAGE     := $(BASE_IMAGE_NAME)/$(SALES_APP):$(VERSION)
 METRICS_IMAGE   := $(BASE_IMAGE_NAME)/metrics:$(VERSION)
 AUTH_IMAGE      := $(BASE_IMAGE_NAME)/$(AUTH_APP):$(VERSION)
 
+GOTMPDIR=/home/pedro.yoshimura/Desenvolvimento/service/tempdir/
+
 # VERSION       := "0.0.1-$(shell git rev-parse --short HEAD)"
 
 # ==============================================================================
@@ -393,7 +395,7 @@ test-r:
 	CGO_ENABLED=1 go test -race -count=1 ./...
 
 test-only:
-	CGO_ENABLED=0 go test -count=1 ./...
+	GOTMPDIR=$(GOTMPDIR) CGO_ENABLED=0 go test -count=1 ./...
 
 lint:
 	CGO_ENABLED=0 go vet ./...
