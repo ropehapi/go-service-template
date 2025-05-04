@@ -1,6 +1,9 @@
 # Annotations by ropehapi
 Para o perfeito funcionamento da aplicação, foi necessário fazer algumas modificações:
 - Criar um diretorio temporario para a execução dos testes
+ `mkdir /tempdir`
+GOTMPDIR=$(GOTMPDIR)
+sudo CHOWN $USER:$USER .
 - Ajustar o makefile para rodar os testes incluindo esse diretório temporário
 - Instalar o staticcheck com:
  `go install honnef.co/go/tools/cmd/staticcheck@latest`
